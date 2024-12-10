@@ -73,18 +73,18 @@ module "public_route_table" {
 }
 # export: module.route_table.rtb_id
 
-module "private_route_table" {
-  source  = "./modules/route_table"
-  name    = "${module.vpc.name}-rtb-private"
-  vpc_id  = module.vpc.vpc_id
-  subnets = [for key, subnet in module.private_subnet : subnet.subnet_id]
+# module "private_route_table" {
+#   source  = "./modules/route_table"
+#   name    = "${module.vpc.name}-rtb-private"
+#   vpc_id  = module.vpc.vpc_id
+#   subnets = [for key, subnet in module.private_subnet : subnet.subnet_id]
 
-  ipv4_routes = [
-    {
-      cidr_block     = "0.0.0.0/0"
-      nat_gateway_id = module.nat_gateway.nat_id
-    }
-  ]
-}
+#   ipv4_routes = [
+#     {
+#       cidr_block     = "0.0.0.0/0"
+#       nat_gateway_id = module.nat_gateway.nat_id
+#     }
+#   ]
+# }
 # export: module.route_table.rtb_id
 

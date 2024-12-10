@@ -142,7 +142,7 @@ instances = [
     volume               = 20
     is_public            = true # 퍼블릭 인스턴스일때 true / 프라이빗 인스턴스일때 false
     subnet_name          = "public1"
-    security_group_names = ["ssh", "db-unique"]
+    security_group_names = ["ssh", "db-redis"]
   },
   {
     name                 = "mongoDB"
@@ -151,7 +151,7 @@ instances = [
     volume               = 20
     is_public            = true # 퍼블릭 인스턴스일때 true / 프라이빗 인스턴스일때 false
     subnet_name          = "public1"
-    security_group_names = ["ssh", "db-unique"]
+    security_group_names = ["ssh", "db-mongodb"]
   },
   # {
   #   name                 = "db-service"

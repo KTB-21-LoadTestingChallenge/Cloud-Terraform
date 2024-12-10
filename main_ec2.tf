@@ -18,7 +18,7 @@ module "ec2_instance" {
   instance_type      = each.value.instance_type
   ami                = each.value.ami
   volume             = each.value.volume
-  subnet_id          = each.value.is_public ? module.public_subnet[each.value.subnet_name].subnet_id : module.private_subnet[each.value.subnet_name].subnet_id
+  subnet_id          = each.value.is_public ? module.public_subnet[each.value.subnet_name].subnet_id : ""
   security_group_ids = [
     for sg_name in each.value.security_group_names : module.security_groups[sg_name].security_group_id
   ]
