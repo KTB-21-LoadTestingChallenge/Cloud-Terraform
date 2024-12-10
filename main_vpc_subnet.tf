@@ -18,20 +18,20 @@ module "public_subnet" {
 # export: module.public_subnet["subnet_name"].subnet_id
 
 
-variable "private_subnets" {
-  description = "프라이빗 서브넷 구성 정보"
-  type = map(object({
-    cidr_block        = string
-    availability_zone = string
-  }))
-}
-module "private_subnet" {
-  source                  = "./modules/subnets"
-  for_each                = var.private_subnets
-  name                    = "${module.vpc.name}-subnet-${each.key}"
-  vpc_id                  = module.vpc.vpc_id
-  map_public_ip_on_launch = true
-  cidr_block              = each.value.cidr_block
-  availability_zone       = each.value.availability_zone
-}
+# variable "private_subnets" {
+#   description = "프라이빗 서브넷 구성 정보"
+#   type = map(object({
+#     cidr_block        = string
+#     availability_zone = string
+#   }))
+# }
+# module "private_subnet" {
+#   source                  = "./modules/subnets"
+#   for_each                = var.private_subnets
+#   name                    = "${module.vpc.name}-subnet-${each.key}"
+#   vpc_id                  = module.vpc.vpc_id
+#   map_public_ip_on_launch = true
+#   cidr_block              = each.value.cidr_block
+#   availability_zone       = each.value.availability_zone
+# }
 # export: module.private_subnet["subnet_name"].subnet_id
