@@ -75,6 +75,25 @@ sg = [
     ]
   },
   { 
+    name    = "back-nodejs"
+    ingress = [
+      {
+        from_port   = 5000
+        to_port     = 5000
+        protocol    = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+      }
+    ]
+    egress = [
+      {
+        from_port   = 0
+        to_port     = 0
+        protocol    = "-1"
+        cidr_blocks = ["0.0.0.0/0"]
+      }
+    ]
+  },
+  { 
     name    = "db-redis"
     ingress = [
       {
@@ -124,7 +143,7 @@ instances = [
     volume               = 20
     is_public            = true # 퍼블릭 인스턴스일때 true / 프라이빗 인스턴스일때 false
     subnet_name          = "public1"
-    security_group_names = ["ssh", "db-unique"]
+    security_group_names = ["ssh", "front-nextjs"]
   },
   {
     name                 = "back"
@@ -133,7 +152,7 @@ instances = [
     volume               = 20
     is_public            = true # 퍼블릭 인스턴스일때 true / 프라이빗 인스턴스일때 false
     subnet_name          = "public1"
-    security_group_names = ["ssh", "db-unique"]
+    security_group_names = ["ssh", "back-nodejs"]
   },
   {
     name                 = "redis"
