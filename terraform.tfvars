@@ -26,6 +26,13 @@ public_subnets = {
     }
 }
 
+private_subnets = {
+  "private1" = {
+    cidr_block = "192.168.10.0/24"
+    availability_zone = "ap-northeast-2a"
+  }
+}
+
 # Security Groups
 # 사용하지 않으면: sg = []
 sg = [
