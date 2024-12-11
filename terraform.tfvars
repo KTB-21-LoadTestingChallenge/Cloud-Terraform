@@ -182,6 +182,24 @@ instances = [
     subnet_name          = "public1"
     security_group_names = ["ssh"]
   },
+  {
+    name                 = "stress1"
+    ami                  = "ami-0f1e61a80c7ab943e"
+    instance_type        = "t3.small"
+    volume               = 20
+    is_public            = true # 퍼블릭 인스턴스일때 true / 프라이빗 인스턴스일때 false
+    subnet_name          = "public1"
+    security_group_names = ["ssh"]
+  },
+  {
+    name                 = "stress2"
+    ami                  = "ami-0f1e61a80c7ab943e"
+    instance_type        = "t3.small"
+    volume               = 20
+    is_public            = true # 퍼블릭 인스턴스일때 true / 프라이빗 인스턴스일때 false
+    subnet_name          = "public1"
+    security_group_names = ["ssh"]
+  },
   # {
   #   name                 = "db-service"
   #   ami                  = "ami-0f1e61a80c7ab943e"
